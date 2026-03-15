@@ -25,14 +25,21 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [x] Describe the game's purpose.
+The purpose of the game is a number guessing game where the player tries to guess a secret number between 1 and 100. The game gives hints after each guess telling you whether to go higher or lower.
+
+- [x] Detail which bugs you found.
+The first bug was that the hints were backwards — guessing too high said "Go HIGHER" and guessing too low said "Go LOWER". The second bug was that attempts started at 1 instead of 0, so players automatically lost one attempt before even guessing. The third bug was that on even attempts the secret number was converted to a string, causing wrong comparisons.
+
+- [x] Explain what fixes you applied.
+- Swapped the hint messages in `check_guess` so directions are correct
+- Changed attempts to start at 0 in session state
+- Removed the `str()` conversion so the secret stays as an integer
+- Moved core logic into `logic_utils.py` to separate game logic from the UI
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
-
+![Fixed winning game](image.png)
 ## 🚀 Stretch Features
 
 - [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
